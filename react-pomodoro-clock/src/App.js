@@ -10,7 +10,6 @@ class PomodoroClock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 5,
       breakTimer: {
         name: 'break',
         duration: 5
@@ -20,19 +19,31 @@ class PomodoroClock extends React.Component {
         duration: 25
       }
     };
+    this.adjustTime = this.adjustTime.bind(this);
+  }
+
+  adjustTime(event) {
+    let triggered = event.target.id.match(/\w+/)[0];
+    if (triggered.includes("increment")) {
+      this.setState((state) => ({
+        duration: this.state[`${triggered}Timer`].duration + 1
+      }))
+    }
+
   }
 
   render() {
+    let duration = this.state.sessionTimer.duration;
     return (
       <div class="main">
         <div class="timer-wrapper">
-          <SetTimer timerType={this.state.breakTimer}/>
-          <SetTimer timerType={this.state.sessionTimer} />
+          <SetTimer timerType={this.state.breakTimer} button={this.adjustTime}/>
+          <SetTimer timerType={this.state.sessionTimer} button={this.adjustTime}/>
         </div>
         <div className="clock_face">
           <div class="face_wrapper">
             <h2 id="timer-label">{this.state.sessionTimer.name}</h2>
-            <h3>{this.state.sessionTimer.duration}</h3>
+            <h3 id="time-left">{`${duration}:00`}</h3>
           </div>
         </div>
         <div class="trigger_wrapper">
