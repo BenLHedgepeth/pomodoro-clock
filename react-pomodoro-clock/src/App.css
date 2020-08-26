@@ -13,6 +13,10 @@
   }
 }
 
+* {
+  font-family: 'Bungee', cursive;
+}
+
 button {
   background: none;
   border: none;
@@ -55,7 +59,6 @@ button {
 }
 
 .clock_face {
-  font-family: 'Bungee', cursive;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,7 +102,6 @@ h3 {
 #break-increment, #break-decrement {
   position: relative;
   z-index: 100;
-  background: red;
 }
 
 svg {

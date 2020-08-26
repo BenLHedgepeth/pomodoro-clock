@@ -22,6 +22,7 @@ class PomodoroClock extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    // alert("componentDidUpdate is invoked!");
     let {timerActive} = this.state;
     if (timerActive && this.state.sessionTimer > 0) {
       this.ticker = setTimeout(
