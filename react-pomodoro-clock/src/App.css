@@ -24,6 +24,7 @@ button {
 }
 
 .adjust_timer {
+  text-decoration: capitalize;
   font-size: 22px;
   margin: 0 25px;
 }
@@ -92,6 +93,18 @@ h3 {
 #session-label, #break-label {
   text-align: center;
   margin-bottom: 10px;
+}
+
+#session-increment, #session-decrement,
+#break-increment, #break-decrement {
+  position: relative;
+  z-index: 100;
+  background: red;
+}
+
+svg {
+  position: relative;
+  z-index: -1;
 }
 
 /* .clock_face {
